@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Hover over any price on any webpage to instantly see the BDT equivalent at live exchange rates. No setup required.",
   "permissions": ["storage", "activeTab"],
-  "host_permissions": ["https://api.frankfurter.app/*"],
+  "host_permissions": ["https://api.frankfurter.dev/*"],
   "action": {
     "default_popup": "popup.html",
     "default_title": "BD Currency Converter"
