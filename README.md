@@ -73,6 +73,14 @@ node build.js firefox   # → bd-currency-converter-firefox.zip (Mozilla Add-ons
 node build.js edge      # → bd-currency-converter-edge.zip    (Edge Add-ons)
 ```
 
+## Store links
+
+- [Google Chrome](#)
+- [Firefox](#)
+- [Microsoft Edge](#)
+- 🌐 [GitHub Repository](https://github.com/f4him/currency-to-BDT)
+- ❤️ [Support me on Patreon](https://patreon.com/f4him)
+
 ## Roadmap
 
 - [ ] Right-click "Copy as BDT" context menu
