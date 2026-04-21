@@ -1,9 +1,10 @@
-importScripts('config.js');
-importScripts("config.js");
+// background.js
+// Fetches live exchange rates and caches them for 1 hour.
+// Uses Frankfurter API — completely free, no API key required.
+// Docs: https://frankfurter.app
 
-const API_KEY = CONFIG.API_KEY; //put api key in config.js
-const BASE_URL = `https://v6.exchangerate-api.com/v6/${API_KEY}/latest/USD`;
-const CACHE_TTL = 60 * 60 * 1000;
+const BASE_URL = "https://api.frankfurter.app/latest?from=USD";
+const CACHE_TTL = 60 * 60 * 1000; // 1 hour in milliseconds
 
 async function fetchRates() {
   try {
@@ -11,9 +12,10 @@ async function fetchRates() {
     if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
     const data = await response.json();
 
-    if (data.result !== "success") throw new Error("API returned error");
+    // Frankfurter returns { rates: { EUR: 0.91, GBP: 0.78, ... } }
+    // It doesn't include USD itself, so we add it manually
+    const rates = { USD: 1, ...data.rates };
 
-    const rates = data.conversion_rates;
     await chrome.storage.local.set({
       rates: rates,
       ratesTimestamp: Date.now(),

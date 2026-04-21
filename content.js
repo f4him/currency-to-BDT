@@ -67,8 +67,8 @@ document.body.appendChild(tooltip);
 
 function showTooltip(e, bdtText, originalText) {
   tooltip.innerHTML = `
-    <div style="font-size:18px;font-weight:600;color:#9FE1CB">${bdtText}</div>
-    <div style="font-size:16px;color:#e6e6e6;margin-top:2px">${originalText} at live rate</div>
+    <div style="font-size:15px;font-weight:600;color:#9FE1CB">${bdtText}</div>
+    <div style="font-size:11px;color:#888;margin-top:2px">${originalText} at live rate</div>
   `;
   tooltip.style.opacity = "1";
   positionTooltip(e);
