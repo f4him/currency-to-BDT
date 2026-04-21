@@ -83,6 +83,7 @@ node build.js edge      # → bd-currency-converter-edge.zip    (Edge Add-ons)
 
 ## Roadmap
 
+- [ ] Need to handle multiple price in a single node
 - [ ] Right-click "Copy as BDT" context menu
 - [ ] Options page to choose which currencies appear in the popup
 - [ ] Auto-detect page locale currency
