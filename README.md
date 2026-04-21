@@ -90,7 +90,7 @@ node build.js edge      # → bd-currency-converter-edge.zip    (Edge Add-ons)
 
 ## Privacy
 
-This extension does not collect, store, or transmit any personal data. Exchange rates are fetched from the open-source [Frankfurter API](https://frankfurter.app) and cached locally in your browser for 1 hour.
+This extension does not collect, store, or transmit any personal data. Exchange rates are fetched from the open-source [Frankfurter API](https://frankfurter.dev) and cached locally in your browser for 1 hour.
 
 ## License
 
