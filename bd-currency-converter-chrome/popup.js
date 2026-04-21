@@ -18,7 +18,7 @@ const footer = document.getElementById("footer");
 
 function formatBDT(amount) {
   // Bangladeshi lakh system: 1,00,000
-  const fixed = Math.round((amount * 100) / 100);
+  const fixed = Math.round(amount);
   const str = fixed.toString();
   if (str.length <= 3) return "৳ " + str;
   const last3 = str.slice(-3);
