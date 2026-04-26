@@ -1,14 +1,3 @@
-// background.js
-// Fetches live exchange rates and caches them for 1 hour.
-// Uses Frankfurter v2 API — completely free, no API key required.
-// Docs: https://frankfurter.dev
-//
-// API response is an array of objects like:
-// [{ date, base: "BDT", quote: "USD", rate: 0.00833 }, ...]
-// We convert this into a flat map: { USD: 0.00833, EUR: 0.0076, ... }
-// Since base is BDT, rate = "how much 1 BDT is worth in that currency"
-// To convert FROM a foreign currency TO BDT: bdtAmount = amount / rates[fromCurrency]
-
 const BASE_URL = "https://api.frankfurter.dev/v2/rates?base=BDT";
 const CACHE_TTL = 60 * 60 * 1000; // 1 hour in milliseconds
 

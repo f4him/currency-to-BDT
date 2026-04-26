@@ -30,8 +30,6 @@ async function loadRates() {
 }
 
 function convertToBDT(amount, fromCurrency, rates) {
-  // rates[fromCurrency] = how much 1 BDT is in fromCurrency
-  // so: BDT = foreignAmount / rates[fromCurrency]
   if (!rates || rates[fromCurrency] == null) return null;
   if (fromCurrency === "BDT") return amount;
   return amount / rates[fromCurrency];
@@ -69,10 +67,10 @@ tooltip.style.cssText = `
 `;
 document.body.appendChild(tooltip);
 
-function showTooltip(e, bdtText, originalText) {
+function showTooltip(e, bdtText, amount, fromCurrency) {
   tooltip.innerHTML = `
-    <div style="font-size:15px;font-weight:600;color:#9FE1CB">${bdtText}</div>
-    <div style="font-size:11px;color:#888;margin-top:2px">${originalText} at live rate</div>
+    <div style="font-size:16px;font-weight:600;color:#9FE1CB">${bdtText}</div>
+    <div style="font-size:12px;color:#fff;margin-top:2px">1 ${fromCurrency} = ${amount}</div>
   `;
   tooltip.style.opacity = "1";
   positionTooltip(e);
@@ -104,8 +102,11 @@ function wrapPriceSpan(textNode, match, fromCurrency, amount, rates) {
     cursor: help;
     border-radius: 2px;
   `;
+  const a = formatBDT(1 / rates[fromCurrency]);
 
-  span.addEventListener("mouseover", (e) => showTooltip(e, bdtText, match));
+  span.addEventListener("mouseover", (e) =>
+    showTooltip(e, bdtText, a, fromCurrency),
+  );
   span.addEventListener("mousemove", positionTooltip);
   span.addEventListener("mouseleave", hideTooltip);
 
